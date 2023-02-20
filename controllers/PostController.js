@@ -25,7 +25,7 @@ export const createPost = async (req,res) =>{
 export const getAllPosts = async (req,res) =>{
     try {
         const posts = await PostModel.find();
-     
+        console.log("GET POST DONE\n",posts);
         res.json(posts)
     } catch (error) {
         console.log(error);
