@@ -24,8 +24,8 @@ export const createPost = async (req,res) =>{
 
 export const getAllPosts = async (req,res) =>{
     try {
-        const posts = await PostModel.find();
-        console.log("GET POST DONE\n",posts);
+        const posts = await PostModel.find().populate('user').exec();
+        //console.log("GET POST DONE\n",posts);
         res.json(posts)
     } catch (error) {
         console.log(error);
@@ -60,7 +60,7 @@ export const getOne = async (req,res) =>{
             }
 
             res.json(doc);
-        });
+        }).populate('user');
     } catch (error) {
         console.log(error);
     }
@@ -110,5 +110,18 @@ export const updatePost = async (req,res) =>{
         res.status(500).json({
             message:"Not updated"
         })
+    }
+}
+
+export const getLastTags = async (req,res) =>{
+    try {
+        const posts = await PostModel.find().limit(5).exec();
+        
+        const tags = posts.map(item => item.tags).flat().slice(0,5).filter((item,index,array) => array.indexOf(item) === index);
+        console.log("_______________TAGS___________________________",tags);
+        console.log("GET POST DONE\n",posts);
+        res.json(tags)
+    } catch (error) {
+        console.log(error);
     }
 }
