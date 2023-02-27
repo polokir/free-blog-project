@@ -62,7 +62,7 @@ app.get('/tags',getLastTags);
 app.post('/upload',checkAuth,upload.single('image'),(req,res)=>{
     console.log("-----Oтправляю в папку Аплоудс----", req.file.originalname)
     res.json({
-        url: `${req.file.originalname}`
+        url: `/uploads/${req.file.originalname}`
     });
 });
 //---------------------------------

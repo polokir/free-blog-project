@@ -22,6 +22,10 @@ const PostSchema = new mongoose.Schema({
         ref:'User',
         required:true
     },
+    coments:{
+        userId:user._id,
+        
+    },
     imageURL:String,
 
 },{timestamps:true});
