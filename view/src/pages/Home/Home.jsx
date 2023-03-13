@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import Grid from '@mui/material/Grid';
 import Post from '../../components/Post/Post'
 import { useDispatch,useSelector } from "react-redux";
-
+import { sortByPopular,sortByDate } from '../../redux/slices/posts';
 import  TagsBlock  from '../../components/TagsBlock/TagsBlock';
 import  CommentsBlock  from '../../components/CommentsBlock/CommentsBlock';
 import axios from '../../axios-queries';
@@ -14,11 +14,13 @@ export const Home = () => {
   const dispatch = useDispatch();
   const userOBJ = useSelector(state =>state.auth.data);
   const {posts ,tags} = useSelector(state =>state.posts);
+ 
 
   React.useEffect(()=>{
     dispatch(fetchPosts())
     dispatch(fetchTags());
   },[]);
+
 
   // console.log("User ID", userOBJ.userData._id);
   
@@ -27,12 +29,18 @@ export const Home = () => {
   
   let isPostLoading = posts.status === "loading";
   let isTagsLoading = tags.status === "loading";
+  const popularSortHandler = () => {
+    dispatch(sortByPopular());
+  }
+  const dateSortHandler = () =>{
+    dispatch(sortByDate());
+  }
 
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
-        <Tab label="Новые" />
-        <Tab label="Популярные" />
+        <Tab label="Новые" onClick={dateSortHandler}  />
+        <Tab label="Популярные"onClick={popularSortHandler}  />
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>

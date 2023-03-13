@@ -26,10 +26,19 @@ export const fetchDeletePost = createAsyncThunk('posts/fetchDeletePost',async (i
 })
 
 
+
 const postSlice = createSlice({
     name:'posts',
     initialState,
-    reducers:{},
+    reducers:{
+        sortByPopular:(state) => {
+            state.posts.items = [...state.posts.items].sort((a,b) => b.viewsCount - a.viewsCount);
+        },
+        sortByDate:(state) => {
+            console.log(state.posts.items[0].createdAt.getTime());
+            state.posts.items = [...state.posts.items].sort((a,b) =>  b.createdAt.getTime() - a.createdAt.getTime());
+        }
+    },
     extraReducers:{
         [fetchPosts.pending]:(state)=>{
             state.posts.status = "loading";
@@ -62,3 +71,4 @@ const postSlice = createSlice({
 })
 
 export const postReducer = postSlice.reducer;
+export const {sortByPopular,sortByDate} = postSlice.actions;
