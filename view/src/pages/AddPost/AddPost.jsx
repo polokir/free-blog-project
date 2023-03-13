@@ -75,7 +75,7 @@ export const AddPost = () => {
       spellChecker: false,
       maxHeight: '400px',
       autofocus: true,
-      placeholder: 'Введите текст...',
+      placeholder: 'Уведіть текст...',
       status: false,
       autosave: {
         enabled: true,
@@ -110,7 +110,7 @@ export const AddPost = () => {
       <TextField
         classes={{ root: styles.title }}
         variant="standard"
-        placeholder="Заголовок статьи..."
+        placeholder="Заголовок поста..."
         value={title}
         onChange = {e => setTitle(e.target.value)}
         fullWidth
@@ -119,7 +119,7 @@ export const AddPost = () => {
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
         <Button type='submit' onClick={handleSubmitForm} size="large" variant="contained">
-          {isEdit ? "Редактировать" : "Опубликовать"}
+          {isEdit ? "Редактувати" : "Публікувати"}
         </Button>
         <a href="/">
           <Button size="large">Отмена</Button>

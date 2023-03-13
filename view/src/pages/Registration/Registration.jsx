@@ -35,16 +35,16 @@ export const Registration = () => {
     <Paper classes={{ root: styles.root }}>
       <form onSubmit={handleSubmit(handleRegistration)} action="">
         <Typography classes={{ root: styles.title }} variant="h5">
-          Создание аккаунта
+          Створення акаунта
         </Typography>
         <div className={styles.avatar}>
           <Avatar sx={{ width: 100, height: 100 }} />
         </div>
-        <TextField {...register('fullName',{required:'Укажите имя'})} className={styles.field} label="Полное имя" fullWidth />
+        <TextField {...register('fullName',{required:'Укажите имя'})} className={styles.field} label="Повне ім'я" fullWidth />
         <TextField {...register('email',{required:'Укажите почту'})} className={styles.field} label="E-Mail" fullWidth />
         <TextField {...register('password',{required:'Укажите пароль'})} className={styles.field} label="Пароль" fullWidth />
         <Button type='submit' size="large" variant="contained" fullWidth>
-          Зарегистрироваться
+          Зареєструватися
         </Button>
       </form>
     </Paper>

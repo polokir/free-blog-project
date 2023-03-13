@@ -15,18 +15,13 @@ export const Home = () => {
   const userOBJ = useSelector(state =>state.auth.data);
   const {posts ,tags} = useSelector(state =>state.posts);
  
-
+  
   React.useEffect(()=>{
     dispatch(fetchPosts())
     dispatch(fetchTags());
   },[]);
 
 
-  // console.log("User ID", userOBJ.userData._id);
-  
-  // console.log("post userID", posts.items[0].user._id)
-  // console.log("user userID", userOBJ?._id)
-  
   let isPostLoading = posts.status === "loading";
   let isTagsLoading = tags.status === "loading";
   const popularSortHandler = () => {
@@ -39,8 +34,8 @@ export const Home = () => {
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs example">
-        <Tab label="Новые" onClick={dateSortHandler}  />
-        <Tab label="Популярные"onClick={popularSortHandler}  />
+        <Tab label="Нові" onClick={dateSortHandler}  />
+        <Tab label="Популярні"onClick={popularSortHandler}  />
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
@@ -71,7 +66,7 @@ export const Home = () => {
                   fullName: 'Вася Пупкин',
                   avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
                 },
-                text: 'Это тестовый комментарий',
+                text: 'Тестовий коментар',
               },
               {
                 user: {

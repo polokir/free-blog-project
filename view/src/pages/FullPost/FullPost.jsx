@@ -47,7 +47,7 @@ export const FullPost = () => {
               fullName: "Вася Пупкин",
               avatarUrl: "https://mui.com/static/images/avatar/1.jpg",
             },
-            text: "Это тестовый комментарий 555555",
+            text: "Тестовий коментар",
           },
           {
             user: {

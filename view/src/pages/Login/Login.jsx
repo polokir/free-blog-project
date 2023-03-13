@@ -36,20 +36,20 @@ const Login = () => {
   return (
     <Paper classes={{ root: styles.root }}>
       <Typography classes={{ root: styles.title }} variant="h5">
-        Вход в аккаунт
+        Вхід в акаунт
       </Typography>
       <form onSubmit={handleSubmit(onSubmitForm)}>
       <TextField
         className={styles.field}
         label="E-Mail"
         error={Boolean(errors.email?.message)}
-        {...register('email',{required:'Укажите почту'})}
+        {...register('email',{required:'Укажіть пошту'})}
         helperText={errors.email?.message}
         fullWidth
       />
       <TextField   error={Boolean(errors.password?.message)} helperText={errors.password?.message} {...register('password',{required:"parol"})} className={styles.field} label="Пароль" fullWidth />
       <Button type="submit" size="large" variant="contained" fullWidth>
-        Войти
+        Увійти
       </Button>
       </form>
     </Paper>
