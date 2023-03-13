@@ -7,7 +7,6 @@ import { useDispatch,useSelector } from "react-redux";
 import { sortByPopular,sortByDate } from '../../redux/slices/posts';
 import  TagsBlock  from '../../components/TagsBlock/TagsBlock';
 import  CommentsBlock  from '../../components/CommentsBlock/CommentsBlock';
-import axios from '../../axios-queries';
 import { fetchPosts, fetchTags} from '../../redux/slices/posts';
 
 export const Home = () => {
@@ -15,7 +14,7 @@ export const Home = () => {
   const userOBJ = useSelector(state =>state.auth.data);
   const {posts ,tags} = useSelector(state =>state.posts);
  
-  
+
   React.useEffect(()=>{
     dispatch(fetchPosts())
     dispatch(fetchTags());

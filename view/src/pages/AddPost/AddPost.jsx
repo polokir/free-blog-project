@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { isAuthUser } from '../../redux/slices/auth';
 import { Navigate,useNavigate,useParams } from 'react-router-dom';
 import axios from '../../axios-queries';
-import { set } from 'mongoose';
+
 
 export const AddPost = () => {
   const {id} = useParams();
@@ -21,7 +21,7 @@ export const AddPost = () => {
   const [tags, setTags] = React.useState('');
   const [imageURL,setImageUrl] = React.useState('');
   const [isLoading,setLoading] = React.useState('');
-  console.log(id);
+
   React.useEffect(()=>{
     if(id){
       axios.get(`/posts/${id}`).then(({data}) => {
